@@ -1,0 +1,182 @@
+{
+    "Inputdata": [
+        {
+            "name": "CSV",
+            "desc": "Handles csv upload",
+            "input": "-",
+            "output": "Datagrid",
+            "callingnode": "File"
+        },
+        {
+            "name": "JSON",
+            "desc": "Handles json upload.",
+            "input": "-",
+            "output": "Datagrid",
+            "callingnode": "json"
+        },
+        {
+            "name": "XML",
+            "desc": "Handles xml upload.",
+            "input": "-",
+            "output": "Datagrid",
+            "callingnode": "xml"
+        },
+        {
+            "name": "XLSX",
+            "desc": "Handles xlsx upload.",
+            "input": "-",
+            "output": "Datagrid",
+            "callingnode": "xlsx"
+        }
+    ],
+    "Outputdata": [
+        {
+            "name": "File",
+            "desc": "Handles csv, json, geojson or topojson files.",
+            "input": "-",
+            "output": "Dataset, Geojson",
+            "callingnode": "File"
+        },
+        {
+            "name": "Save",
+            "desc": "Saves file to Downloads folder",
+            "input": "csv, json, xml, xlsx",
+            "output": "-",
+            "callingnode": "savefiles"
+        }
+    ],
+    "Transform": [
+        {
+            "name": "Transform XLSX",
+            "desc": "converts xlsx file to other file types.",
+            "input": "xlsx file",
+            "output": "csv/xml/json file",
+            "callingnode": "xlsxtransform"
+        },
+        {
+            "name": "Transform JSON",
+            "desc": "converts json file to other file types.",
+            "input": "json file",
+            "output": "csv/xlsx/xml file",
+            "callingnode": "jsontransform"
+        },
+        {
+            "name": "Transform XML",
+            "desc": "converts xml file to other file types.",
+            "input": "xml file",
+            "output": "csv/xlsx/json file",
+            "callingnode": "xmltransform"
+        },
+        {
+            "name": "Transform CSV",
+            "desc": "converts csv file to other file types.",
+            "input": "csv file",
+            "output": "xlsx/xml/json file",
+            "callingnode": "csvtransform"
+        },
+        {
+            "name": "Slice",
+            "desc": "Slices a data set based on indices.",
+            "input": "Dataset, Array",
+            "output": "Dataset",
+            "callingnode": "slice"
+        },
+        {
+            "name": "Clean",
+            "desc": "Cleans a data set.",
+            "input": "Dataset, Array",
+            "output": "Dataset",
+            "callingnode": "clean"
+        },
+        {
+            "name": "Split",
+            "desc": "Splits a data set.",
+            "input": "Dataset, Array",
+            "output": "Dataset",
+            "callingnode": "split"
+        }
+    ],
+    "GeoData": [
+        {
+            "name": "Bounding Box",
+            "desc": "Calculates the bounding box of a given geojson.",
+            "input": "Geojson",
+            "output": "Geojson",
+            "callingnode": "undef"
+        },
+        {
+            "name": "Centroid",
+            "desc": "Calculates the centroid of a given geojson.",
+            "input": "Geojson",
+            "output": "Geojson",
+            "callingnode": "undef"
+        },
+        {
+            "name": "Area",
+            "desc": "Calculates the area in square meters of a given geojson.",
+            "input": "Geojson",
+            "output": "Number",
+            "callingnode": "undef"
+        },
+        {
+            "name": "Buffer",
+            "desc": "Buffers a geojson.",
+            "input": "Geojson",
+            "output": "Geojson",
+            "callingnode": "undef"
+        }
+    ],
+    "Vis": [
+        {
+            "name": "Barchart",
+            "desc": "Displays a bar chart of given x and y column names.",
+            "input": "Dataset",
+            "output": "Dataset",
+            "callingnode": "bar"
+        },
+        {
+            "name": "Histogram",
+            "desc": "Displays a histogram of a given column name.",
+            "input": "Dataset",
+            "output": "Dataset",
+            "callingnode": "hist"
+        },
+        {
+            "name": "Scatterplot",
+            "desc": "Displays a scatterplot of given x and y column names.",
+            "input": "Dataset",
+            "output": "Dataset",
+            "callingnode": "scatter"
+        },
+        {
+            "name": "Time Series",
+            "desc": "Displays a timeseries line chart of given x and y column names.",
+            "input": "Dataset",
+            "output": "Dataset",
+            "callingnode": "time"
+        }
+    ],
+    "Misc": [
+        {
+            "name": "Stats",
+            "desc": "Gives you min, max, avg, mean and count of a given column name.",
+            "input": "Dataset",
+            "output": "-",
+            "callingnode": "undef"
+        },
+        {
+            "name": "Markdown",
+            "desc": "Lets you write some markdown.",
+            "input": "-",
+            "output": "-",
+            "callingnode": "undef"
+        },
+        {
+            "name": "Export",
+            "desc": "Lets you export data as csv, json or geojson.",
+            "input": "Dataset, Geojson, Topojson, Object",
+            "output": "-",
+            "callingnode": "exports"
+        }
+    ]
+}
