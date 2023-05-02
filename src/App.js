@@ -3,13 +3,13 @@ import './index.css';
 import { render } from "react-dom";
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from "react-router-dom";
-import Login from './components/e-insta/login/login'
-import Signup from './components/e-insta/login/signup'
-import Home from './components/e-insta/main/home'
+import Login from './components/nrp/login/login'
+import Signup from './components/nrp/login/signup'
+import Home from './components/nrp/main/home'
 import Switch from "react-switch";
-// import Reactuni from './components/e-insta/main/reactuni';
-import Unis from './components/e-insta/main/unis';
-import { UniProvider } from './components/e-insta/context/unicontext';
+// import Reactuni from './components/nrp/main/reactuni';
+import Unis from './components/nrp/main/unis';
+import { UniProvider } from './components/nrp/context/unicontext';
 
 function App() {
   return (

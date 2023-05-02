@@ -23,7 +23,7 @@ import Checkbox from '@mui/material/Checkbox';
 import logo from '../../resources/logo.png'
 import { useNavigate } from "react-router-dom";
 import { UniContext } from '../context/unicontext';
-import avatar from '../../resources/esblogo.jpg';
+import avatar from '../../resources/userimg.jpg';
 import apiMapping from '../../resources/apiMapping.json';
 import { Link } from "react-router-dom";
 import axios from 'axios';

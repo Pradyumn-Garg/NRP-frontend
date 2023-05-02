@@ -4,13 +4,13 @@ import './index.css';
 import { render } from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from './App';
-import Login from './components/e-insta/login/login'
-import Home from './components/e-insta/main/home'
-import Unis from './components/e-insta/main/unis';
-// import Reactuni from './components/e-insta/main/reactuni';
+import Login from './components/nrp/login/login'
+import Home from './components/nrp/main/home'
+import Unis from './components/nrp/main/unis';
+// import Reactuni from './components/nrp/main/reactuni';
 import reportWebVitals from './reportWebVitals';
-import { UserContextProvider } from './components/e-insta/context/usercontext';
-import { UniProvider } from './components/e-insta/context/unicontext';
+import { UserContextProvider } from './components/nrp/context/usercontext';
+import { UniProvider } from './components/nrp/context/unicontext';
 
 
 const rootElement = document.getElementById("root");
