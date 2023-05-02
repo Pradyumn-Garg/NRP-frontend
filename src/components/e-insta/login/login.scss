@@ -1,7 +1,5 @@
-
-
 .dummy {
-  background-color: #ff0072;
+  background-color: #D32626;
   font-family: sans-serif;
   font-size: 12px;
   color: #f8f8f2;
@@ -9,6 +7,7 @@
   margin-left: 0.1%;
   font-weight: 700;
   height: 40px;
+  border-radius: 5px;
 }
 
 .dummy1 {
@@ -26,6 +25,7 @@
   margin-left: 0.1%;
   font-weight: 700;
   height: 40px;
+  border-radius: 5px;
 }
 
 .dummy4 {
@@ -72,13 +72,13 @@
   text-transform: none !important;
   margin-top: 8px !important;
   margin-bottom: 0 !important;
-  background: rgba(104, 191, 63, 100%) !important;
+  background: #54B55D !important;
   font-family: monospace !important;
 }
 
 .buttons:hover {
   background-color: #32b932 !important;
-  color: rgb(0, 0, 0) !important;
+  color: white !important;
 }
 
 .texts InputLabelProps {

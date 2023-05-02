@@ -26,7 +26,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { render } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
-import { FlowContext } from '../context/flowcontext';
+import { UniContext } from '../context/unicontext';
 import './login.scss'
 
 const theme = createTheme();
@@ -39,11 +39,11 @@ export default function Login() {
   const navigate = useNavigate();
   const {
     token, settoken,
-    flowsvalue, setflowsvalue,
+    unisvalue, setunisvalue,
     email, setemail,
     fname, setfname,
     lname, setlname
-  } = useContext(FlowContext);
+  } = useContext(UniContext);
 
 
   const errorbox = () => {
@@ -58,13 +58,13 @@ export default function Login() {
     }
   }
 
-  const getflowsdb = (recievedemail) => {
+  const getunisdb = (recievedemail) => {
     let payload =
     {
       "email": recievedemail
     }
-    axios.post(apiMapping.userData.getflows, payload).then(response => {
-      setflowsvalue(response.data);
+    axios.post(apiMapping.userData.getunis, payload).then(response => {
+      setunisvalue(response.data);
     })
   }
 
@@ -84,7 +84,7 @@ export default function Login() {
         setfname(response.data.firstname);
         setlname(response.data.lastname);
         setemail(response.data.email);
-        getflowsdb(response.data.email)
+        getunisdb(response.data.email)
         // console.log("response:", response);
         navigate('/home');
       }
@@ -103,32 +103,11 @@ export default function Login() {
         <Container className='cont' maxWidth="xl">
           <Toolbar disableGutters>
             <img src={logo} alt="My logo" width="70" height="33" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', hright: '10vh' }} />
-            {/* <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'sans-serif',
-                fontWeight: 550,
-                fontSize: "14px",
-                letterSpacing: '.0rem',
-                color: 'rgb(238, 240, 242)',
-                textDecoration: 'none',
-                marginTop: "-15px"
-              }}
-            >
-              NRP
-            </Typography> */}
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
             </Typography>
 
             <Button color="inherit" className='buttons1'  sx={{ fontSize: "11px", marginTop: "-15px", marginRight: "-10px" }} onClick={(e) => { navigate('/') }}>LOGIN</Button>
             <Button color="inherit" className='buttons1'  sx={{ fontSize: "11px", marginTop: "-15px", marginRight: "-10px" }} onClick={(e) => { navigate('/signup') }}>SIGN UP</Button>
-
 
           </Toolbar>
         </Container>
@@ -194,22 +173,8 @@ export default function Login() {
                 Login
               </Button>
 
-              {/* <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                className='buttons'
-                onClick={(e) => {
-                  e.preventDefault();
-                }}
-              >
-                <span>Login with Github</span>
-              </Button> */}
               <Grid container>
                 <Grid item xs={12}>
-                  {/* <Link2 href="#" variant="body2" className='links'>
-                    Forgot your password → <span style={{ fontWeight: 'bold' }}>Password reset</span>
-                  </Link2> */}
                 </Grid>
                 <Grid item xs={12}>
                   <Link2 href="/signup" variant="body2" className='links'>
@@ -217,9 +182,6 @@ export default function Login() {
                   </Link2>
                 </Grid>
                 <Grid item xs={12}>
-                  {/* <Link2 href="#" variant="body2" className='links'>
-                    New to datablocks? → <span style={{ fontWeight: 'bold' }}>Try the demo</span>
-                  </Link2> */}
                 </Grid>
               </Grid>
             </Box>

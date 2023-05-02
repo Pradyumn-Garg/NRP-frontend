@@ -1,21 +1,21 @@
 import React, { useState, useRef, useCallback, useEffect, createContext } from 'react';
 
-export const FlowContext = createContext();
+export const UniContext = createContext();
 
-export const FlowProvider = ({ children }) => {
-    const [flowsvalue, setflowsvalue] = useState([]);
+export const UniProvider = ({ children }) => {
+    const [unisvalue, setunisvalue] = useState([]);
     const [token, settoken] = useState("");
     const [email, setemail] = useState("");
     const [fname, setfname] = useState("");
     const [lname, setlname] = useState("");
-    const [currflow, setcurrflow] = useState();
-    const flowdata = {
+    const [curruni, setcurruni] = useState();
+    const unidata = {
         token, settoken,
-        flowsvalue, setflowsvalue,
+        unisvalue, setunisvalue,
         email, setemail,
         fname, setfname,
         lname, setlname,
-        currflow, setcurrflow
+        curruni, setcurruni
     };
-    return <FlowContext.Provider value={flowdata}>{children}</FlowContext.Provider>
+    return <UniContext.Provider value={unidata}>{children}</UniContext.Provider>
 }

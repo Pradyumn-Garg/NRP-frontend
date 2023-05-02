@@ -2,9 +2,9 @@
 .btn {
     text-transform: none;
     margin-bottom: 0.8%;
-    margin-left: 89%;
-    margin-top: -7.5%;
-    background: rgba(255, 255, 255, 0.08);
+    margin-left: 83.63% !important;
+    margin-top: -8.2% !important;
+    background: #54B55D !important;
     font-family: monospace;
 }
 
@@ -20,20 +20,22 @@
 .btn1 {
     text-transform: none;
     white-space: nowrap;
-    justify-content: left;
-    margin-bottom: -1.3%;
-    background: #333154;
+    justify-content: left !important;
+    margin-bottom: -1.3% !important;
+    margin-left: -1.2% !important;
+    background: #17706E !important;
     font-family: system-ui;
-    width: 100%;
+    width: 101.2%;
+    margin-top: 0.7% !important;
     min-height: 90px;
-    color: white;
+    color: white !important;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px !important;
 }
 
 .btn1:hover {
-    background-color: #4c497e;
-    color: white;
+    background-color: #135352 !important;
+    color: white !important;
 }
 
 .b {
@@ -52,8 +54,12 @@
 }
 
 .text1 {
-    border: 1px solid white;
-    width: 300%;
+    border-radius: 10px !important;
+    width: 290%;
+    min-height: 33px !important;
+    background-color: #F4E798;
+    padding-left: 10px !important;
+    padding-top: 6px !important;
 }
 
 input {
@@ -63,23 +69,23 @@ input {
 .btn3 {
     text-transform: none;
     margin-top: -1px;
-    border-radius: 0;
+    border-radius: 10px !important;
     margin-left: -9px;
-    background: #434161;
+    background: #FB7813 !important;
     font-family: monospace;
-    min-width: 40px;
-    min-height: 42px;
+    min-width: 45px;
+    min-height: 39px !important;
     border: 1;
     border-color: white;
 }
 
 .btn3:hover {
-    background-color: #4c497e;
+    background-color: #da6913 !important;
     color: white;
 }
 
 .icon {
-    color: white;
+    color: rgb(243, 243, 243);
     margin-right: -13px;
 }
 
@@ -88,9 +94,10 @@ input {
 }
 
 .e {
-    font-size: 12px;
-    color: #9ca8b3;
+    font-size: 11px;
+    color: rgb(219, 216, 216);
     font-weight: normal;
+    font-family: Comic Sans MS, Comic Sans, cursive	;
 }
 
 .f {
@@ -101,32 +108,34 @@ input {
 
 .btn4 {
     text-transform: none;
-    background: #434161;
+    background: #FB7813 !important;
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: -69% !important;
     font-family: monospace;
     min-width: 40px;
     min-height: 30px;
 }
 
 .btn4:hover {
-    background-color: #4c497e;
-    color: white;
+    background-color: #da6913 !important;
+    color: black;
 }
 
 .btn5 {
     text-transform: none;
     margin-left: 10px;
-    background: #434161;
+    background: #FB7813 !important;
     margin-top: 0;
     margin-bottom: 0;
+    margin-left: 14% !important;
     font-family: monospace;
     min-width: 40px;
     min-height: 30px;
 }
 
 .btn5:hover {
-    background-color: #4c497e;
-    color: white;
+    background-color: #da6913 !important;
+    color: black;
 }
 

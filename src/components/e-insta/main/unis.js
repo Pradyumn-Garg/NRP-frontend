@@ -8,11 +8,11 @@ import TextField from '@mui/material/TextField';
 import DoneIcon from '@mui/icons-material/Done';
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
-import { FlowContext } from '../context/flowcontext';
+import { UniContext } from '../context/unicontext';
 import { Link } from "react-router-dom";
 import apiMapping from '../../resources/apiMapping.json';
 import axios from 'axios';
-require('./flows.scss')
+require('./unis.scss')
 
 
 function getCurrentDate(separator = '/') {
@@ -26,60 +26,60 @@ function getCurrentDate(separator = '/') {
 }
 
 
-const Flows = () => {
+const Unis = () => {
     const [edit, setEdit] = React.useState(false);
     const [editid, setEditId] = useState('');
     const navigate = useNavigate();
     const {
         token, settoken,
-        flowsvalue, setflowsvalue,
+        unisvalue, setunisvalue,
         email, setemail,
         fname, setfname,
         lname, setlname,
-        currflow, setcurrflow
-    } = useContext(FlowContext);
+        curruni, setcurruni
+    } = useContext(UniContext);
 
     const editname = (value, i) => {
-        let newArr = [...flowsvalue];
-        newArr[i].flowname = value;
+        let newArr = [...unisvalue];
+        newArr[i].uniname = value;
         newArr[i].updationinfo = getCurrentDate();
-        setflowsvalue(newArr)
+        setunisvalue(newArr)
     }
 
-    const deleteflow = (i) => {
-        axios.delete(apiMapping.userData.deleteflow + flowsvalue[i]._id).then(response => {
+    const deleteuni = (i) => {
+        axios.delete(apiMapping.userData.deleteuni + unisvalue[i]._id).then(response => {
         });
-        setflowsvalue([
-            ...flowsvalue.slice(0, i),
-            ...flowsvalue.slice(i + 1, flowsvalue.length)
+        setunisvalue([
+            ...unisvalue.slice(0, i),
+            ...unisvalue.slice(i + 1, unisvalue.length)
         ]);
     }
 
-    const postflowsdb = (flowname, creationinfo, updationinfo, payload, newflows) => {
+    const postunisdb = (uniname, creationinfo, updationinfo, payload, newunis) => {
         let payload2 =
         {
             "payload": payload,
             "email": email,
-            "flowname": flowname,
+            "uniname": uniname,
             "creationinfo": creationinfo,
             "updationinfo": updationinfo
         }
-        axios.post(apiMapping.userData.postflows, payload2).then(response => {
-            let temp = [...newflows];
-            temp[newflows.length - 1]._id = response.data._id;
-            setflowsvalue(temp);
+        axios.post(apiMapping.userData.postunis, payload2).then(response => {
+            let temp = [...newunis];
+            temp[newunis.length - 1]._id = response.data._id;
+            setunisvalue(temp);
         })
     }
 
-    const putflowsdb = (i) => {
-        let newArr = [...flowsvalue];
+    const putunisdb = (i) => {
+        let newArr = [...unisvalue];
         let payload2 =
         {
             "payload": newArr[i].payload,
             "updationinfo": newArr[i].updationinfo,
-            "flowname": newArr[i].flowname
+            "uniname": newArr[i].uniname
         }
-        axios.put(apiMapping.userData.putflows + newArr[i]._id, payload2).then(response => {
+        axios.put(apiMapping.userData.putunis + newArr[i]._id, payload2).then(response => {
         })
     }
 
@@ -92,30 +92,29 @@ const Flows = () => {
                     className='btn'
                     onClick={(e) => {
                         e.preventDefault();
-                        let newflow = {
+                        let newuni = {
                             _id: "",
                             payload: "",
                             email: "",
-                            flowname: "untitled flow",
+                            uniname: "New University",
                             creationinfo: getCurrentDate(),
                             updationinfo: getCurrentDate()
                         }
-                        postflowsdb(newflow.flowname, newflow.creationinfo, newflow.updationinfo, newflow.payload, [...flowsvalue, newflow]);
+                        postunisdb(newuni.uniname, newuni.creationinfo, newuni.updationinfo, newuni.payload, [...unisvalue, newuni]);
                     }}
-                    
                 >
-                    + new flow
+                + add university
                 </Button>
                 <div className='a'>
                     {
-                        flowsvalue.map((currflow, i) => (
+                        unisvalue.map((curruni, i) => (
                             <>
                                 <Button
                                     disableRipple
                                     className='btn1'
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        setcurrflow(i);
+                                        setcurruni(i);
                                         navigate('/reactapp');
                                     }}
                                 >
@@ -131,7 +130,8 @@ const Flows = () => {
                                                             e.preventDefault();
                                                         }}
                                                     >
-                                                        <TextField className="text1" size='small'  value={currflow.flowname} variant="outlined"
+                                                        <TextField className="text1" size='small'  value={curruni.uniname} variant="standard"
+                                                            InputProps={{ disableUnderline: true }}
                                                             onChange={(e) => { editname(e.target.value, i) }}
                                                         />
                                                     </Button>
@@ -141,24 +141,24 @@ const Flows = () => {
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             e.preventDefault();
-                                                            putflowsdb(i);
+                                                            putunisdb(i);
                                                             setEdit(false);
                                                         }}
-                                                        startIcon={<DoneIcon style={{ color: "white", marginRight: "-13px" }} />}
+                                                        startIcon={<DoneIcon style={{ color: "rgb(243, 243, 243)", marginRight: "-13px" }} />}
                                                     />
                                                 </div>
                                             ) :
                                                 (
                                                     <div className='d'>
-                                                        {currflow.flowname}
+                                                        {curruni.uniname}
                                                     </div>
                                                 )
 
                                         }
                                         <div className='e'>
-                                            created at: {currflow.creationinfo}
+                                            created at: {curruni.creationinfo}
                                             <br />
-                                            updated at: {currflow.updationinfo}
+                                            updated at: {curruni.updationinfo}
                                         </div>
                                     </div>
                                     <div className='f'>
@@ -178,7 +178,7 @@ const Flows = () => {
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 e.preventDefault();
-                                                deleteflow(i);
+                                                deleteuni(i);
                                             }}
                                             startIcon={<DeleteOutlineOutlinedIcon className='icon' />}
                                         />
@@ -195,4 +195,4 @@ const Flows = () => {
     );
 }
 
-export default Flows
+export default Unis

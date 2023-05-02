@@ -6,7 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Flows from './flows';
+import Unis from './unis';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -22,13 +22,14 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import logo from '../../resources/logo.png'
 import { useNavigate } from "react-router-dom";
-import { FlowContext } from '../context/flowcontext';
+import { UniContext } from '../context/unicontext';
 import avatar from '../../resources/esblogo.jpg';
 import apiMapping from '../../resources/apiMapping.json';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import sx from '@mui/system/sx';
 import './home.scss'
+import { BrightnessHigh } from '@mui/icons-material';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,10 +41,10 @@ function TabPanel(props) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
-      sx={{ fontColor: "white" }}
+      sx={{ fontColor: "black", width: "90px" }}
     >
       {value === index && (
-        <Box sx={{ p: 3, color: 'rgba(0, 0, 0, 0.85)', }}>
+        <Box sx={{ p: 3, color: 'rgba(0, 0, 0, 0.85)'}}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -75,7 +76,7 @@ export default function Home() {
     email, setemail,
     fname, setfname,
     lname, setlname
-  } = useContext(FlowContext);
+  } = useContext(UniContext);
 
 
   const username = () => {
@@ -88,7 +89,7 @@ export default function Home() {
   const errorbox = () => {
     if (errorflag) {
       return (
-        <div style={{ marginLeft: "-71%", marginTop: "10px", position: "relative", backgroundColor: "#ff0072", height: "35px", width: "30%" }}>
+        <div style={{ marginLeft: "-70%", marginTop: "10px", position: "relative", backgroundColor: "#D32626", height: "35px", width: "30%", borderRadius: "6px"}}>
           <Typography
             sx={{
               mt: 1,
@@ -108,7 +109,7 @@ export default function Home() {
   const successbox = () => {
     if (successflag) {
       return (
-        <div style={{ marginLeft: "-71%", marginTop: "10px", position: "relative", backgroundColor: "#27b91a", height: "35px", width: "30%" }}>
+        <div style={{ marginLeft: "-70%", marginTop: "10px", position: "relative", backgroundColor: "#27b91a", height: "35px", width: "30%", borderRadius: "6px" }}>
           <Typography
             sx={{
               mt: 1,
@@ -147,41 +148,21 @@ export default function Home() {
     })
   }
   const deleteuser = () => {
-    axios.delete(apiMapping.userData.deleteallflows + email).then(response => {
+    axios.delete(apiMapping.userData.deleteallunis + email).then(response => {
     });
     axios.delete(apiMapping.userData.deleteuser + email).then(response => {
     });
   }
 
   return (
-    <Box style={{ backgroundColor: "#1A202C", height: '100%', minHeight: "100vh" }}>
-      <AppBar position="static" style={{ background: '#1A192B', height: "45px" }}>
+    <Box style={{ backgroundColor: "#F9F9F9", height: '100%', minHeight: "100vh" }}>
+      <AppBar position="static" style={{ background: '#54B55D', height: "45px" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={logo} alt="My logo" width="40" height="50" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', hright: '10vh' }} />
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'sans-serif',
-                fontWeight: 550,
-                fontSize: "14px",
-                letterSpacing: '.0rem',
-                color: 'rgb(238, 240, 242)',
-                textDecoration: 'none',
-                marginTop: "-15px"
-              }}
-            >
-              datablocks
-            </Typography>
+            <img src={logo} alt="My logo" width="70" height="33" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', hright: '10vh' }} />
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
             </Typography>
-            <Avatar src={avatar} alt="eaiesb" className='ava'  />
+            <Avatar sx={{ width: 34, height: 34 }} src={avatar} alt="user" className='ava'  />
             <div color="inherit" className='di'>
               {username()}
             </div>
@@ -199,19 +180,19 @@ export default function Home() {
 
       <Box className='box4'>
         <Box className='box3'>
-          <Tabs textColor="white" value={value} onChange={handleChange} aria-label="basic tabs example" TabIndicatorProps={{ style: { backgroundColor: "white", width: "60px", marginLeft: "1.25%" } }}>
-            <Tab label="Flows" {...a11yProps(0)} className="tabs" />
+          <Tabs textColor="black" value={value} onChange={handleChange} aria-label="basic tabs example" TabIndicatorProps={{ style: { backgroundColor: "#54B55D"} }}>
+            <Tab label="Universities" {...a11yProps(0)} className="tabs" />
             <Tab label="Account" {...a11yProps(1)} className="tabs" />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0} className="tablep" style={{ marginTop: "-1.5%" }}>
-          <Flows />
+          <Unis />
         </TabPanel>
         <TabPanel value={value} index={1}>
           <Box
             className='box2'
           >
-            <Typography component="h1" variant="h5" color="white" className='typ' >
+            <Typography component="h1" variant="h5" color="black" className='typ' >
               Change Password
             </Typography>
             {errorbox()}
@@ -229,7 +210,7 @@ export default function Home() {
                 size='small'
                 InputLabelProps={{ style: { color: '#4A5568' } }}
                 className='texts'
-                inputProps={{ style: { fontFamily: 'nunito', color: 'white' } }}
+                inputProps={{ style: { fontFamily: 'nunito', color: 'black', backgroundColor: '#F4E798' } }}
                 style={{ marginTop: "8px" }}
                 onChange={(e) => { setoldpassword(e.target.value) }}
               />
@@ -245,11 +226,11 @@ export default function Home() {
                 size='small'
                 InputLabelProps={{ style: { color: '#4A5568' } }}
                 className='texts'
-                inputProps={{ style: { fontFamily: 'nunito', color: 'white' } }}
+                inputProps={{ style: { fontFamily: 'nunito', color: 'black', backgroundColor: '#F4E798' } }}
                 style={{ marginTop: "8px" }}
                 onChange={(e) => { setnewpassword(e.target.value) }}
               />
-
+              &nbsp;
               <Button
                 type="submit"
                 fullWidth
@@ -264,32 +245,40 @@ export default function Home() {
               </Button>
             </Box>
           </Box>
+          <br/>
+          <hr/>
           <Box component="form" noValidate className='boxh'>
             Delete User
           </Box>
-          <Box component="form" noValidate className='boxh'>
-            When you delete your user all connected data will be removed from our servers.
+          <Box component="form" noValidate className='box2h'>
+            *When you delete your user all connected data will be removed from our servers.
           </Box>
+
+          {!onclickdelete ? (
+          <div>
           <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            style={{ textTransform: 'none', height: "40px", width: "160px", marginTop: "10px", marginLeft: "-0.5%" }}
-            sx={{
-              mt: 0, mb: 0, background: 'rgba(255, 255, 255, 0.08)', ':hover': {
-                bgcolor: '#6866AC',
-                color: 'white',
-              },
-              fontWeight: 700,
-              fontFamily: 'Polaris'
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              setonclickdelete(true);
-            }}
+          type="submit"
+          fullWidth
+          variant="contained"
+          style={{ textTransform: 'none', height: "40px", width: "160px", marginTop: "10px", marginLeft: "-1.5px" }}
+          sx={{
+            mt: 0, mb: 0, background: '#D32626', color: 'white', ':hover': {
+              bgcolor: 'red',
+              color: 'black',
+            },
+            fontWeight: 100,
+            fontFamily: 'Polaris'
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            setonclickdelete(true);
+          }}
           >
-            Delete my user data
+          Delete my user data
           </Button>
+          </div>
+          ) : (console.log())}
+
           <br></br>
 
           {onclickdelete ? (
@@ -298,13 +287,33 @@ export default function Home() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                style={{ textTransform: 'none', height: "60px", width: "160px", marginTop: "10px", marginLeft: "-0.5%" }}
+                style={{ textTransform: 'none', height: "60px", width: "160px", marginTop: "-11px", marginLeft: "-1.5px" }}
                 sx={{
-                  mt: 0, mb: 0, background: 'red', ':hover': {
-                    bgcolor: 'red',
-                    color: 'white',
+                  mt: 0, mb: 0, background: '#54B55D', ':hover': {
+                    bgcolor: '#54B55D',
+                    color: 'black',
                   },
-                  fontWeight: 700,
+                  fontWeight: 100,
+                  fontFamily: 'Polaris'
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setonclickdelete(false);
+                }}
+              >
+                Cancel deletion
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                style={{ textTransform: 'none', height: "60px", width: "160px", marginTop: "-10px", marginLeft: "1%" }}
+                sx={{
+                  mt: 0, mb: 0, background: '#D32626', ':hover': {
+                    bgcolor: 'red',
+                    color: 'black',
+                  },
+                  fontWeight: 100,
                   fontFamily: 'Polaris'
                 }}
                 onClick={(e) => {
@@ -314,26 +323,6 @@ export default function Home() {
                 }}
               >
                 Confirm user and all data deletion?
-              </Button>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                style={{ textTransform: 'none', height: "60px", width: "160px", marginTop: "10px", marginLeft: "1%" }}
-                sx={{
-                  mt: 0, mb: 0, background: 'green', ':hover': {
-                    bgcolor: 'green',
-                    color: 'white',
-                  },
-                  fontWeight: 700,
-                  fontFamily: 'Polaris'
-                }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setonclickdelete(false);
-                }}
-              >
-                Cancel deletion
               </Button>
             </div>
           ) : (console.log())}

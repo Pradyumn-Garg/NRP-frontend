@@ -95,32 +95,10 @@ export default function Signup() {
                 <Container className='cont' maxWidth="xl">
                     <Toolbar disableGutters>
                         <img src={logo} alt="My logo" width="70" height="33" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', hright: '10vh' }} />
-                        {/* <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'sans-serif',
-                                fontWeight: 550,
-                                fontSize: "14px",
-                                letterSpacing: '.0rem',
-                                color: 'rgb(238, 240, 242)',
-                                textDecoration: 'none',
-                                marginTop: "-15px"
-                            }}
-                        >
-                            datablocks
-                        </Typography> */}
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
                         </Typography>
-
                         <Button color="inherit" className='buttons1' sx={{ fontSize: "11px", marginTop: "-15px", marginRight: "-10px" }} onClick={(e) => { navigate('/') }}>LOGIN</Button>
                         <Button color="inherit" className='buttons1' sx={{ fontSize: "11px", marginTop: "-15px", marginRight: "-10px" }} onClick={(e) => { navigate('/signup') }}>SIGN UP</Button>
-
 
                     </Toolbar>
                 </Container>
@@ -223,18 +201,6 @@ export default function Signup() {
                             >
                                 Sign up
                             </Button>
-
-                            {/* <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                className='buttons'
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                }}
-                            >
-                                <span>Sign up with Github</span>
-                            </Button> */}
                             <Grid container>
                                 <Grid item xs={12}>
                                     <Link2 href="/" variant="body2"  className='links'>
@@ -242,9 +208,6 @@ export default function Signup() {
                                     </Link2>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    {/* <Link2 href="#" variant="body2"  className='links'>
-                                        New to datablocks? → <span style={{ fontWeight: 'bold', fontFamily: "IBM Plex Sans" }}>Try the demo</span>
-                                    </Link2> */}
                                 </Grid>
                             </Grid>
                         </Box>

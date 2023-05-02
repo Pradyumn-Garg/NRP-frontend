@@ -6,22 +6,22 @@ import { BrowserRouter } from "react-router-dom";
 import App from './App';
 import Login from './components/e-insta/login/login'
 import Home from './components/e-insta/main/home'
-import Flows from './components/e-insta/main/flows';
-import Reactflow from './components/e-insta/main/reactflow';
+import Unis from './components/e-insta/main/unis';
+// import Reactuni from './components/e-insta/main/reactuni';
 import reportWebVitals from './reportWebVitals';
 import { UserContextProvider } from './components/e-insta/context/usercontext';
-import { FlowProvider } from './components/e-insta/context/flowcontext';
+import { UniProvider } from './components/e-insta/context/unicontext';
 
 
 const rootElement = document.getElementById("root");
 render(
   <React.StrictMode>
     <BrowserRouter>
-      <FlowProvider>
+      <UniProvider>
         <UserContextProvider>
           <App />
         </UserContextProvider>
-      </FlowProvider>
+      </UniProvider>
     </BrowserRouter>
   </React.StrictMode>,
   rootElement
