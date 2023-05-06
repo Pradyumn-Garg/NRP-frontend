@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect, createContext } from '
 
 export const UniContext = createContext();
 
-export const UniProvider = ({ children }) => {
+export const UniContextProvider = ({ children }) => {
     const [unisvalue, setunisvalue] = useState([]);
     const [token, settoken] = useState("");
     const [email, setemail] = useState("");

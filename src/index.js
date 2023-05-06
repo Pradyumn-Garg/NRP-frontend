@@ -7,21 +7,17 @@ import App from './App';
 import Login from './components/nrp/login/login'
 import Home from './components/nrp/main/home'
 import Unis from './components/nrp/main/unis';
-// import Reactuni from './components/nrp/main/reactuni';
 import reportWebVitals from './reportWebVitals';
-import { UserContextProvider } from './components/nrp/context/usercontext';
-import { UniProvider } from './components/nrp/context/unicontext';
+import { UniContextProvider } from './components/nrp/context/unicontext';
 
 
 const rootElement = document.getElementById("root");
 render(
   <React.StrictMode>
     <BrowserRouter>
-      <UniProvider>
-        <UserContextProvider>
-          <App />
-        </UserContextProvider>
-      </UniProvider>
+      <UniContextProvider>
+        <App />
+      </UniContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   rootElement

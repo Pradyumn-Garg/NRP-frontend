@@ -44,7 +44,7 @@ function TabPanel(props) {
       sx={{ fontColor: "black", width: "90px" }}
     >
       {value === index && (
-        <Box sx={{ p: 3, color: 'rgba(0, 0, 0, 0.85)'}}>
+        <Box sx={{ p: 3, color: 'rgba(0, 0, 0, 0.85)' }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -78,7 +78,6 @@ export default function Home() {
     lname, setlname
   } = useContext(UniContext);
 
-
   const username = () => {
     return `${fname}${" "}${lname}`;
   }
@@ -89,7 +88,7 @@ export default function Home() {
   const errorbox = () => {
     if (errorflag) {
       return (
-        <div style={{ marginLeft: "-70%", marginTop: "10px", position: "relative", backgroundColor: "#D32626", height: "35px", width: "30%", borderRadius: "6px"}}>
+        <div style={{ marginLeft: "-70%", marginTop: "10px", position: "relative", backgroundColor: "#D32626", height: "35px", width: "30%", borderRadius: "6px" }}>
           <Typography
             sx={{
               mt: 1,
@@ -147,6 +146,7 @@ export default function Home() {
       }
     })
   }
+  
   const deleteuser = () => {
     axios.delete(apiMapping.userData.deleteallunis + email).then(response => {
     });
@@ -159,10 +159,10 @@ export default function Home() {
       <AppBar position="static" style={{ background: '#54B55D', height: "45px" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <img src={logo} alt="My logo" width="70" height="33" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', hright: '10vh' }} />
+            <img src={logo} alt="My logo" width="70" height="33" style={{ marginTop: "-15px", marginLeft: "-15px" }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, width: '10vw', height: '10vh' }} />
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             </Typography>
-            <Avatar sx={{ width: 34, height: 34 }} src={avatar} alt="user" className='ava'  />
+            <Avatar sx={{ width: 34, height: 34 }} src={avatar} alt="user" className='ava' />
             <div color="inherit" className='di'>
               {username()}
             </div>
@@ -180,7 +180,7 @@ export default function Home() {
 
       <Box className='box4'>
         <Box className='box3'>
-          <Tabs textColor="black" value={value} onChange={handleChange} aria-label="basic tabs example" TabIndicatorProps={{ style: { backgroundColor: "#54B55D"} }}>
+          <Tabs textColor="black" value={value} onChange={handleChange} aria-label="basic tabs example" TabIndicatorProps={{ style: { backgroundColor: "#54B55D" } }}>
             <Tab label="Universities" {...a11yProps(0)} className="tabs" />
             <Tab label="Account" {...a11yProps(1)} className="tabs" />
           </Tabs>
@@ -245,8 +245,8 @@ export default function Home() {
               </Button>
             </Box>
           </Box>
-          <br/>
-          <hr/>
+          <br />
+          <hr />
           <Box component="form" noValidate className='boxh'>
             Delete User
           </Box>
@@ -255,28 +255,28 @@ export default function Home() {
           </Box>
 
           {!onclickdelete ? (
-          <div>
-          <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          style={{ textTransform: 'none', height: "40px", width: "160px", marginTop: "10px", marginLeft: "-1.5px" }}
-          sx={{
-            mt: 0, mb: 0, background: '#D32626', color: 'white', ':hover': {
-              bgcolor: 'red',
-              color: 'black',
-            },
-            fontWeight: 100,
-            fontFamily: 'Polaris'
-          }}
-          onClick={(e) => {
-            e.preventDefault();
-            setonclickdelete(true);
-          }}
-          >
-          Delete my user data
-          </Button>
-          </div>
+            <div>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                style={{ textTransform: 'none', height: "40px", width: "160px", marginTop: "10px", marginLeft: "-1.5px" }}
+                sx={{
+                  mt: 0, mb: 0, background: '#D32626', color: 'white', ':hover': {
+                    bgcolor: 'red',
+                    color: 'black',
+                  },
+                  fontWeight: 100,
+                  fontFamily: 'Polaris'
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setonclickdelete(true);
+                }}
+              >
+                Delete my user data
+              </Button>
+            </div>
           ) : (console.log())}
 
           <br></br>

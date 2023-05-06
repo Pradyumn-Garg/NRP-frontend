@@ -12,6 +12,7 @@ import { UniContext } from '../context/unicontext';
 import { Link } from "react-router-dom";
 import apiMapping from '../../resources/apiMapping.json';
 import axios from 'axios';
+import Unidashboard from './unidashboard';
 require('./unis.scss')
 
 
@@ -115,7 +116,7 @@ const Unis = () => {
                                     onClick={(e) => {
                                         e.preventDefault();
                                         setcurruni(i);
-                                        navigate('/reactapp');
+                                        navigate('/unidashboard');
                                     }}
                                 >
                                     <div className='b'>

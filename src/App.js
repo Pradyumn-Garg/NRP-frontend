@@ -7,9 +7,8 @@ import Login from './components/nrp/login/login'
 import Signup from './components/nrp/login/signup'
 import Home from './components/nrp/main/home'
 import Switch from "react-switch";
-// import Reactuni from './components/nrp/main/reactuni';
+import Unidashboard from './components/nrp/main/unidashboard';
 import Unis from './components/nrp/main/unis';
-import { UniProvider } from './components/nrp/context/unicontext';
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
       <Route path="/" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/home" element={<Home />}></Route>
-      {/* <Route path="/reactapp" element={<Reactuni />}></Route> */}
+      <Route path="/unidashboard" element={<Unidashboard />}></Route>
       <Route path="/unilist" element={<Unis />} ></Route>
     </Routes>
   );
